@@ -10,13 +10,15 @@ import UIKit
 class ResultViewController: UIViewController {
     
     @IBOutlet var pictureLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
     var answerResults: [Answer]!
-    var animals: [Animal: Int] = [:]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        
         getResult()
     }
     
@@ -25,26 +27,21 @@ class ResultViewController: UIViewController {
     }
     
     private func getResult() {
+        var animals: [Animal: Int] = [:]
+        
         answerResults.forEach {
             animals[$0.animal] = animals[$0.animal] == nil
             ? 1 : animals[$0.animal]! + 1
         }
         
-        let count = animals.values.count / 2
-        guard let someAnimal = animals.filter({ $0.value >= count }).first?.key else {
+        guard let resultAnimal = animals.sorted(by: { $0.value > $1.value }).first?.key else {
             return
         }
-        pictureLabel.text = String(someAnimal.rawValue)
-       
-        switch someAnimal {
-        case .dog:
-            nameLabel.text = "Вы - Cобака"
-        case .cat:
-            nameLabel.text = "Вы - Кот/кошка"
-        case .rabbit:
-            nameLabel.text = "Вы - Кролик"
-        case .turtle:
-            nameLabel.text = "Вы - Черепаха"
-        }
+        updateUI(resultAnimal)
+    }
+    
+    private func updateUI(_ animal: Animal) {
+        pictureLabel.text = "Вы - \(animal.rawValue)!"
+        descriptionLabel.text = animal.definition
     }
 }

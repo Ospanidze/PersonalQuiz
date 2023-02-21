@@ -282,7 +282,7 @@
                         <outletCollection property="multipleSwitches" destination="p9h-Qv-PxF" collectionClass="NSMutableArray" id="vIb-Yx-2ih"/>
                         <outletCollection property="rangedLabels" destination="TCO-TP-0a4" collectionClass="NSMutableArray" id="eDh-EV-4Ge"/>
                         <outletCollection property="rangedLabels" destination="Ora-hH-jbj" collectionClass="NSMutableArray" id="WaH-eO-ZtG"/>
-                        <segue destination="LiX-kO-U2P" kind="presentation" identifier="showResult" modalPresentationStyle="fullScreen" id="xsp-Zx-fk2"/>
+                        <segue destination="LiX-kO-U2P" kind="show" identifier="showResult" id="RPg-58-mXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blX-6m-fYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -298,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ovD-oU-ves">
-                                <rect key="frame" x="16" y="240" width="288" height="88.5"/>
+                                <rect key="frame" x="16" y="254" width="288" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы – 🐙" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="za0-gA-BIl">
                                         <rect key="frame" x="61.5" y="0.0" width="165.5" height="60"/>
@@ -306,32 +306,37 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы – осьминог" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-hC-bYw">
-                                        <rect key="frame" x="85" y="68" width="118" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы – осьминог" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-hC-bYw">
+                                <rect key="frame" x="20" y="354" width="280" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fJ2-ly-lVJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fJ2-ly-lVJ" firstAttribute="trailing" secondItem="Mvl-hC-bYw" secondAttribute="trailing" constant="20" id="1TF-d0-wsX"/>
                             <constraint firstItem="ovD-oU-ves" firstAttribute="leading" secondItem="fJ2-ly-lVJ" secondAttribute="leading" constant="16" id="5De-Je-Daq"/>
                             <constraint firstItem="fJ2-ly-lVJ" firstAttribute="trailing" secondItem="ovD-oU-ves" secondAttribute="trailing" constant="16" id="6yK-oa-vUt"/>
+                            <constraint firstItem="Mvl-hC-bYw" firstAttribute="top" secondItem="za0-gA-BIl" secondAttribute="bottom" constant="40" id="CbH-go-XiU"/>
                             <constraint firstItem="ovD-oU-ves" firstAttribute="centerY" secondItem="0zH-za-Hq0" secondAttribute="centerY" id="kr6-zM-ahc"/>
+                            <constraint firstItem="Mvl-hC-bYw" firstAttribute="leading" secondItem="fJ2-ly-lVJ" secondAttribute="leading" constant="20" id="tGv-WO-KmN"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Результат" id="6Aa-8C-AYu">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="WsX-6E-G2o">
                             <connections>
-                                <action selector="doneButtonPressed:" destination="LiX-kO-U2P" id="lzA-IC-TAP"/>
+                                <action selector="doneButtonPressed:" destination="LiX-kO-U2P" id="3pg-C1-XkS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="nameLabel" destination="Mvl-hC-bYw" id="c2V-a8-Ti2"/>
+                        <outlet property="descriptionLabel" destination="Mvl-hC-bYw" id="c2V-a8-Ti2"/>
                         <outlet property="pictureLabel" destination="za0-gA-BIl" id="Uai-ZP-r1y"/>
                     </connections>
                 </viewController>
